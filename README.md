@@ -4,7 +4,6 @@
 > 
 > *Template LaTeX professionale per relazioni tecniche, report di laboratorio e documentazione di progetto in ambito ingegneristico e IT.*
 
-![License](https://img.shields.io/badge/license-Commercial-red)
 ![Language](https://img.shields.io/badge/language-LaTeX-blue)
 ![Version](https://img.shields.io/badge/version-1.1-green)
 ![Bilingual](https://img.shields.io/badge/bilingual-IT%20%2F%20EN-orange)
