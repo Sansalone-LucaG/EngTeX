@@ -157,5 +157,3 @@ Includes: all `.tex` source files · `stile_ingegneria.sty` · 2 complete exampl
 - ✅ Complete example report — PWM controller on Xilinx Artix-7 (English)
 
 ---
-
-*Made with ❤️ by [Luca Gaetano Sansalone](https://sansalonelucag.gumroad.com)*
