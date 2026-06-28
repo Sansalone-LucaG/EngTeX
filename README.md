@@ -31,7 +31,7 @@ Four visual environments, available in **English and Italian**, invoked with a s
 | `\warning{Text}` | `\attenzione` | Red lateral bar |
 | `\exemplo{Title}{Text}` | `\esempio` | Teal numbered box |
 
-![Box preview](immagini/screenshot_boxes.png)
+![Box preview](immagini/)
 
 ---
 
