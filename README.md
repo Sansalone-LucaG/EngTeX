@@ -13,9 +13,29 @@
 
 ## 📄 Preview
 
-| Italian Manual | English Manual |
-| :-: | :-: |
-| [📥 ITA_Manuale.pdf](preview/ITA_Manuale.pdf) | [📥 ENG_Manual.pdf](preview/ENG_Manual.pdf) |
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Premium Edition</th>
+      <th colspan="2">Lite Edition</th>
+    </tr>
+    <tr>
+      <th>Italian Manual (ITA)</th>
+      <th>English Manual (ENG)</th>
+      <th>Italian Manual (ITA)</th>
+      <th>English Manual (ENG)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><a href="preview/ITA_Manuale_premium_version.pdf">📥 Download PDF</a></td>
+      <td align="center"><a href="preview/ENG_Manual_premium_version.pdf">📥 Download PDF</a></td>
+      <td align="center"><a href="preview/ITA_Manuale_lite_version.pdf">📥 Download PDF</a></td>
+      <td align="center"><a href="preview/ENG_Manual_lite_version.pdf">📥 Download PDF</a></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ---
 
