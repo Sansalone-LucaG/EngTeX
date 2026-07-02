@@ -6,8 +6,8 @@ Welcome to the EngTeX ecosystem! This repository contains the documentation and 
 Choose the template that fits your needs:
 
 - 📘 **[EngTeX Report Template](./report_template/README.md)**: Ideal for university theses, laboratory reports, and technical manuals.
-- 📰 **[EngTeX Paper Template](./paper_template)**: Native IEEE two-column layout, perfect for scientific articles and publications.
-- 🛠️ **[VSCode + MiKTeX Setup Guide](./VSCode_MiKTeX_Guide)**: A step-by-step guide to installing and configuring a professional local LaTeX environment.
+- 📰 **[EngTeX Paper Template](./paper_template/README.md)**: Native IEEE two-column layout, perfect for scientific articles and publications.
+- 🛠️ **[VSCode + MiKTeX Setup Guide](./VSCode_MiKTeX_Guide/README.md)**: A step-by-step guide to installing and configuring a professional local LaTeX environment.
 
 ---
 
@@ -16,6 +16,6 @@ Benvenuto nell'ecosistema EngTeX! Questa repository contiene la documentazione e
 
 Scegli il template che fa per te:
 
-- 📘 **[EngTeX Report Template](./report_template)**: Ideale per tesi di laurea, relazioni di laboratorio e manuali tecnici.
-- 📰 **[EngTeX Paper Template](./paper_template)**: Layout nativo a due colonne stile IEEE, perfetto per articoli scientifici e pubblicazioni.
-- 🛠️ **[VSCode + MiKTeX Setup Guide](./VSCode_MiKTeX_Guide)**: Una guida passo-passo per installare e configurare un ambiente LaTeX locale professionale.
+- 📘 **[EngTeX Report Template](./report_template/README.md)**: Ideale per tesi di laurea, relazioni di laboratorio e manuali tecnici.
+- 📰 **[EngTeX Paper Template](./paper_template/README.md)**: Layout nativo a due colonne stile IEEE, perfetto per articoli scientifici e pubblicazioni.
+- 🛠️ **[VSCode + MiKTeX Setup Guide](./VSCode_MiKTeX_Guide/README.md)**: Una guida passo-passo per installare e configurare un ambiente LaTeX locale professionale.
