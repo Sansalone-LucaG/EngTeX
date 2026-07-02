@@ -82,7 +82,7 @@ EngTeX è disponibile in due versioni per ogni esigenza e budget:
 
 > 📘 **Need a step-by-step installation guide? | Serve una guida passo-passo?**
 >
-> **[VS Code + MiKTeX Setup Guide](https://github.com/Sansalone-LucaG/EngTeX/tree/main/VSCode_MiKTeX_Guide)**
+> **[VS Code + MiKTeX Setup Guide](https://github.com/Sansalone-LucaG/EngTeX/tree/main/VSCode_MiKTeX_Guide/README.md)**
 
 ---
 
@@ -220,7 +220,7 @@ project/
 4. Open `main.tex`, set the language option and edit the quick-customisation block
 5. Build: `pdflatex → biber → pdflatex → pdflatex`
 
-> 📘 **[Complete setup guide → VS Code + MiKTeX](https://github.com/Sansalone-LucaG/EngTeX/tree/main/VSCode_MiKTeX_Guide)**
+> 📘 **[Complete setup guide → VS Code + MiKTeX](https://github.com/Sansalone-LucaG/EngTeX/tree/main/VSCode_MiKTeX_Guide/README.md)**
 
 ### Overleaf ⚠️ (free plan limitations apply)
 
