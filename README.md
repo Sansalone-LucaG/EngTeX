@@ -5,7 +5,7 @@ Welcome to the EngTeX ecosystem! This repository contains the documentation and 
 
 Choose the template that fits your needs:
 
-- 📘 **[EngTeX Report Template](./report_template)**: Ideal for university theses, laboratory reports, and technical manuals.
+- 📘 **[EngTeX Report Template](./report_template/README.md)**: Ideal for university theses, laboratory reports, and technical manuals.
 - 📰 **[EngTeX Paper Template](./paper_template)**: Native IEEE two-column layout, perfect for scientific articles and publications.
 - 🛠️ **[VSCode + MiKTeX Setup Guide](./VSCode_MiKTeX_Guide)**: A step-by-step guide to installing and configuring a professional local LaTeX environment.
 
