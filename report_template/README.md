@@ -49,22 +49,19 @@ EngTeX è disponibile in due versioni per ogni esigenza e budget:
 | :--- | :---: | :---: |
 | **Professional Layout & Typography** | ✅ | ✅ |
 | **Bilingual Labels (ENG / ITA)** | ✅ | ✅ |
-| **IEEE Bibliography & Acronyms** | ✅ | ✅ |
-| **Syntax Highlighting** — VHDL, C, C++, Java, Python, MATLAB | ✅ | ✅ |
+| **IEEE Bibliography** | ✅ | ✅ |
+| **Syntax Highlighting** — VHDL, C, C++, Java | ✅ | ✅ |
 | **Basic Math Macros** — Derivatives, Phasors, Sets | ✅ | ✅ |
 | **4 Graphic Boxes** — Definition, Note, Warning, Example | ✅ | ✅ |
-| **TikZ Block Diagrams** — Hardware & Flowcharts | ✅ | ✅ |
 | **SI Units** via `siunitx` | ✅ | ✅ |
-| **9 Extra Boxes** — Theorem, Lemma, Corollary, Proof, Remember, Tip, Exam, Curiosity... | ❌ | ✅ |
+| **Syntax Highlighting** — Python, MATLAB, Bash, LaTeX | ❌ | ✅ |
 | **Advanced Math** — Integrals, Limits, LinAlg, Prob & Stats, Vector Operators | ❌ | ✅ |
+| **9 Extra Boxes** — Theorem, Lemma, Corollary, Proof, Remember, Tip, Exam, Curiosity... | ❌ | ✅ |
+| **TikZ Block Diagrams** — Hardware & Flowcharts | ❌ | ✅ |
 | **Equation Wrappers** — `\eqn{}{}`, `\eqns{}{}` | ❌ | ✅ |
 | **Circuitikz Integration** — Electrical Circuits | ❌ | ✅ |
-| **Pgfplots Integration** — Function Plotting | ❌ | ✅ |
 | **Algorithm2e Integration** — Pseudocode & Algorithms | ❌ | ✅ |
-| **Modular Architecture** — Enable/disable sub-packages | ❌ | ✅ |
-| **VHDL Vivado Colors** — Keyword coloring matched to Xilinx Vivado | ❌ | ✅ |
-| **Complete Manual** — 4 chapters, IT + EN | ❌ | ✅ |
-| **Example Reports** — IT + EN (~11 pages each) | ✅ | ✅ |
+| **Acronyms** | ❌ | ✅ |
 
 ---
 
@@ -87,6 +84,27 @@ EngTeX è disponibile in due versioni per ogni esigenza e budget:
 ---
 
 ## ✨ Features
+
+### 📦 Modular Architecture
+
+You can load only the packages you need to speed up compilation.
+Puoi caricare solo i pacchetti che ti servono per velocizzare la compilazione.
+
+```latex
+\usepackage[
+  language=english,
+  modules={math,boxes,code,algorithms,tikz,circuits}
+]{package/engtex}
+```
+
+### 🌍 Bilingual Support | Supporto Bilingue
+
+All labels (Abstract, Keywords, Theorem, Warning, etc.) switch automatically between English and Italian by changing the `language` option in the package:
+
+```latex
+\usepackage[language=english]{package/engtex}   % English
+\usepackage[language=italian]{package/engtex}   % Italiano
+```
 
 ### 🎨 Custom Graphic Boxes
 
@@ -118,15 +136,16 @@ Visual environments invoked with a single command. Labels switch automatically b
 
 Dedicated style for each language, with both block and inline support:
 
-| `style=` | Language | Inline command |
+| `style=` | `compact` variant | Inline command |
 | --- | --- | --- |
-| `vhdl` | VHDL (IEEE 1076-2008) | `\vhdlinline{}` |
-| `c` | C | `\cinline{}` |
-| `cpp` | C++ | `\cppinline{}` |
-| `java` | Java | `\javainline{}` |
-| `python` | Python | `\pythoninline{}` |
-| `matlab` | MATLAB | `\matlabinline{}` |
-| `bash` | Bash / Shell | *(block only)* |
+| `vhdl` | `vhdlcompact` | `\vhdlinline{}` |
+| `c` | `ccompact` | `\cinline{}` |
+| `cpp` | `cppcompact` | `\cppinline{}` |
+| `java` | `javacompact` | `\javainline{}` |
+| `python` | `pythoncompact` | `\pythoninline{}` |
+| `matlab` | `matlabcompact` | `\matlabinline{}` |
+| `bash` | `bashcompact` | `\bashinline{}` |
+| `latex` | `latexcompact` | |
 
 > 🎨 **Premium:** VHDL keywords are color-matched to **Xilinx Vivado** defaults — purple keywords, blue types, grey comments.
 
@@ -143,19 +162,27 @@ Shortcuts for the most common notations in engineering:
 ```latex
 % Both editions:
 \der{f}{x}          % df/dx
+\fourier{f(t)}      % f(t) -> F(s)
 \laplace{h(t)}      % Laplace transform
 \fasore{220}{30°}   % phasor notation
 \RR, \NN, \ZZ, \CC  % number sets
 \norm{x}            % vector norm
+\abs{x}             % absolute value
 \notlog{A \cdot B}  % Boolean NOT
+\grad, \curl, \lap  % vector operators
 
 % Premium only:
-\nder{n}{f}{x}      % n-th derivative
-\intab{a}{b}{f}{x}  % definite integral
-\grad, \curl, \lap  % vector operators
+\pder{f}{x}          % partial derivative
+\dder{f}{x}          % second derivative
+\nder{n}{f}{x}       % n-th derivative
+\intab{a}{b}{f}{x}   % definite integral
+\limit{x}{x0}        % limit
+\summ{i}{n}          % Sum from i to n
+\prodd{i}{n}         % Product from i to n
 \prob{E}, \expval{X} % probability
-\tr{A}, \rank{A}    % linear algebra
+\tr{A}, \rank{A}     % linear algebra
 \eqn{label}{formula} % numbered equation
+... and many more ...
 ```
 
 ---
@@ -169,35 +196,19 @@ Shortcuts for the most common notations in engineering:
 
 ---
 
-### 📦 Modular Sub-packages (Premium Only)
+### ⚡ Circuitikz (Premium Only)
 
-The Premium edition uses a modular architecture for maximum flexibility:
-
-| Sub-package | What it provides |
-| --- | --- |
-| `engtex-code` | Syntax highlighting & inline commands |
-| `engtex-math` | Advanced STEM math macros |
-| `engtex-boxes` | All 13 graphic box environments |
-| `engtex-algorithms` | Pseudocode (`algorithm2e`) |
-| `engtex-circuits` | Electrical circuits (`circuitikz`) |
-| `engtex-plots` | Function plotting (`pgfplots`) |
-| `engtex-tikz` | Block diagrams & flowcharts |
-
-> Use the `notikz` option to disable TikZ-dependent packages (useful on Overleaf free tier):
-> ```latex
-> \usepackage[italian, notikz]{layout/engtex}
-> ```
+- **Electrical circuits** via seamless `circuitikz` integration (load the `circuits` module).
 
 ---
 
 ## 📂 File Structure
 
-```
+```text
 project/
 ├── main.tex                  ← entry point: customisation and chapter order
+├── package/                  ← all modular .sty files (engtex, engtex-math, etc.)
 ├── layout/
-│   ├── engtex.sty            ← template engine (do not edit)
-│   ├── engtex-*.sty          ← sub-modules (Premium only)
 │   ├── frontespizio.tex      ← cover page
 │   └── bibliografia.bib      ← BibTeX references
 ├── capitoli/                 ← one .tex file per chapter
@@ -225,7 +236,7 @@ project/
 ### Overleaf ⚠️ (free plan limitations apply)
 
 > The Overleaf **free** plan may time out due to heavy packages (`tcolorbox`, `tikz`, `biblatex`).
-> **Workaround:** use the `notikz` option or temporarily comment out one chapter while editing.
+> **Workaround:** only load the modules you strictly need, or temporarily comment out one chapter while editing.
 > Overleaf **Premium** compiles without issues.
 
 1. Go to [overleaf.com](https://www.overleaf.com) → **New Project → Upload Project**
@@ -237,9 +248,11 @@ project/
 ## ⚙️ Quick Customisation
 
 ```latex
-% In main.tex — set document language:
-\usepackage[english]{layout/engtex}   % English labels
-\usepackage[italian]{layout/engtex}   % Italian labels
+% In main.tex — set document language and modules:
+\usepackage[
+  language=english,
+  modules={math,boxes,code,algorithms,tikz,circuits}
+]{package/engtex}
 
 % Set document version:
 \renewcommand{\versiondoc}{1.0}
@@ -257,25 +270,21 @@ project/
 - ✅ 4 graphic boxes (Definition, Note, Warning, Example)
 - ✅ VHDL / C / C++ / Java / Python / MATLAB syntax highlighting
 - ✅ Basic math macros (derivatives, transforms, phasors, sets)
-- ✅ TikZ macros for hardware datapaths and flowcharts
 - ✅ IEEE bibliography with BibLaTeX + Biber
-- ✅ Automatic acronym management
 - ✅ SI units support
 - ✅ Bilingual labels (IT / EN)
-- ✅ Example reports included
 
 ### EngTeX Premium (€9.99)
 - ✅ Everything in Lite, plus:
 - ✅ 13 graphic boxes total (+ Theorem, Lemma, Corollary, Proof, Remember, Tip, Exam, Curiosity)
-- ✅ Advanced math (integrals, limits, vector operators, linear algebra, probability)
+- ✅ Advanced math (integrals, limits, vector operators, linear algebra, probability and many more)
 - ✅ Equation wrappers with auto-labeling
 - ✅ Electrical circuits via Circuitikz
-- ✅ Function plotting via Pgfplots
 - ✅ Pseudocode via Algorithm2e
-- ✅ VHDL with Vivado color scheme
-- ✅ Modular architecture (enable/disable packages)
+- ✅ Automatic acronym management
 - ✅ Complete 4-chapter manual (IT + EN)
 - ✅ Bash syntax highlighting
+- ✅ Example reports included
 
 ---
 

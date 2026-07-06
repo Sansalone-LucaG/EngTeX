@@ -5,7 +5,7 @@
 > *Template LaTeX professionale per articoli scientifici, ottimizzato per le discipline STEM e con formattazione nativa a due colonne in stile IEEE.*
 
 ![Language](https://img.shields.io/badge/language-LaTeX-blue)
-![Version](https://img.shields.io/badge/version-1.0-green)
+![Version](https://img.shields.io/badge/version-2.0-green)
 ![Bilingual](https://img.shields.io/badge/bilingual-IT%20%2F%20EN-orange)
 ![License](https://img.shields.io/badge/license-Commercial-lightgrey)
 
@@ -53,13 +53,20 @@
 
 ### 🌍 Bilingual Support | Supporto Bilingue (ENG/ITA)
 
-All labels (Abstract, Keywords, Theorem, Warning, etc.) switch automatically between English and Italian by changing a single word in your document class options.
+All labels (Abstract, Keywords, Theorem, Warning, etc.) switch automatically between English and Italian by changing a single option in the package.
 
-Tutte le etichette (Sommario, Parole Chiave, Teorema, Attenzione, ecc.) si adattano automaticamente cambiando una sola parola nelle opzioni del documento.
+Tutte le etichette (Sommario, Parole Chiave, Teorema, Attenzione, ecc.) si adattano automaticamente cambiando una singola opzione nel pacchetto.
 
 ```latex
-\usepackage[english]{layout/stemset}   % English
-\usepackage[italian]{layout/stemset}   % Italiano
+\usepackage[
+  language=english,
+  modules={math,boxes,code,algorithms,tikz}
+]{package/stemset}  % English
+
+\usepackage[
+  language=italian,
+  modules={math,boxes,code,algorithms,tikz}
+]{package/stemset}   % Italiano
 ```
 
 ### 📰 Two-Column Layout | Layout a Due Colonne (IEEE Style)
@@ -94,6 +101,12 @@ Il template supporta nativamente l'opzione `twocolumn` in stile IEEE. Il blocco 
 | `\note{Text}` | `\nota` | Grey-blue lateral bar |
 | `\warning{Text}` | `\attenzione` | Red lateral bar |
 | `\example{Title}{Text}` | `\esempio` | Teal numbered box |
+| `\remember{Text}` | `\ricorda` | Yellow warning box |
+| `\tip{Text}` | `\suggerimento` | Green tip box |
+| `\examquestion{Text}` | `\domandaesame` | Orange exam question box |
+| `\curiosity{Text}` | `\curiosita` | Magenta curiosity box |
+
+**Theorems:** `theorem`, `lemma`, `corollary`, `proposition`.
 
 ---
 
@@ -105,7 +118,10 @@ Scorciatoie per le notazioni più comuni in ingegneria:
 
 ```latex
 % Derivatives & integrals | Derivate e integrali
-\der{f}{x}, \pder{V}{t}, \nder{f}{x}{2}, \diff
+\der{f}{x}, \pder{V}{t}, \dder{f}{x}, \nder{f}{x}{n}, \intab{a}{b}{f(x)}{x}, \eval{f(x)}{a}{b}, \diff
+
+% Limits, sums & products | Limiti, somme e prodotti
+\limit{x}{x0}, \summ{i}{N}, \prodd{i}{N}
 
 % Transforms | Trasformate
 \fourier{}, \laplace{}, \ztrans{}, \invfourier{}, \invlaplace{}, \invztrans{}
@@ -113,11 +129,14 @@ Scorciatoie per le notazioni più comuni in ingegneria:
 % Phasors & complex | Fasori e complessi
 \fasore{V}{\theta}, \real{}, \imag{}, \conj{z}
 
+% Vector operators | Operatori vettoriali
+\grad, \dive, \curl, \lap
+
 % Linear algebra | Algebra lineare
-\transpose, \hermitian, \diag{}, \trace{}, \rank{}, \norm{x}, \abs{x}, \inner{x}{y}
+\transpose, \hermitian, \diag{}, \tr{}, \det{}, \adj{}, \norm{x}, \abs{x}, \inner{x}{y}
 
 % Probability & statistics | Probabilità e statistica
-\expectval{X}, \prob{A}, \Var, \Cov, \given
+\expval{X}, \prob{A}, \var{X}, \cov{X}{Y}, \given
 
 % Optimisation | Ottimizzazione
 \argmin, \argmax, \subjto, \order{n}
@@ -127,6 +146,9 @@ Scorciatoie per le notazioni più comuni in ingegneria:
 
 % Number sets | Insiemi numerici
 \RR, \NN, \ZZ, \CC, \QQ
+
+% Equations wrappers | Wrapper equazioni
+\eqn{label}{equation}, \eqns{label}{aligned_equations}
 ```
 
 <div align="center">
@@ -141,18 +163,22 @@ Dedicated style for each language, with both block and inline support:
 
 Stile dedicato per ogni linguaggio, con supporto sia a blocco che inline:
 
-| `style=` | Language | Inline command |
+| `style=` | `compact` variant | Inline command |
 | --- | --- | --- |
-| `vhdl` | VHDL (IEEE 1076-2008) | `\vhdlinline{}` |
-| `c` | C | `\cinline{}` |
-| `cpp` | C++ | `\cppinline{}` |
-| `java` | Java | `\javainline{}` |
-| `python` | Python | `\pythoninline{}` |
-| `matlab` | MATLAB | `\matlabinline{}` |
+| `vhdl` | `vhdlcompact` | `\vhdlinline{}` |
+| `c` | `ccompact` | `\cinline{}` |
+| `cpp` | `cppcompact` | `\cppinline{}` |
+| `java` | `javacompact` | `\javainline{}` |
+| `python` | `pythoncompact` | `\pythoninline{}` |
+| `matlab` | `matlabcompact` | `\matlabinline{}` |
+| `bash` | `bashcompact` | `\bashinline{}` |
+| `latex` | `latexcompact` | |
 
 <div align="center">
   <img src="immagini/screenshot_box&vhdl.png" alt="VHDL Highlight and Warning Box" width="90%">
 </div>
+
+---
 
 ### 📊 Algorithm Pseudocode | Pseudocodice Algoritmi
 
@@ -163,6 +189,8 @@ Usa `algorithm2e` con opzioni `ruled`, `vlined`, `linesnumbered`. Etichetta auto
 <div align="center">
   <img src="immagini/screenshot_algorithm_table.png" alt="Algorithm and Tables in 2-column layout" width="90%">
 </div>
+
+---
 
 ### 🔧 TikZ Diagram Macros | Macro Diagrammi TikZ
 
@@ -183,11 +211,11 @@ Usa `algorithm2e` con opzioni `ruled`, `vlined`, `linesnumbered`. Etichetta auto
 
 ## 📂 File Structure | Struttura File
 
-```
+```text
 project/
 ├── main.tex                  ← entry point: metadata, language, sections
+├── package/                  ← all modular .sty files (stemset, stemset-math, etc.)
 ├── layout/
-│   ├── stemset.sty           ← template engine (do not edit)
 │   └── bibliografia.bib      ← bibliography references
 ├── sections/                 ← one .tex file per paper section
 │   ├── introduction.tex
@@ -199,9 +227,9 @@ project/
 └── docs/                     ← Manual ITA | ENG and one example paper
 ```
 
-> **Golden rule | Regola d'oro:** only edit `main.tex` and files in `sections/`. Do not touch `stemset.sty`.
+> **Golden rule | Regola d'oro:** only edit `main.tex` and files in `sections/`. Do not touch files in `package/`.
 >
-> Modifica solo `main.tex` e i file in `sections/`. Non toccare `stemset.sty`.
+> Modifica solo `main.tex` e i file in `sections/`. Non toccare i file in `package/`.
 
 ---
 
@@ -209,7 +237,10 @@ project/
 
 ```latex
 % --- Language / Lingua ---
-\usepackage[english]{layout/stemset}
+\usepackage[
+  language=english,
+  modules={math,boxes,code,algorithms,tikz}
+]{package/stemset}
 
 % --- Paper metadata / Metadati ---
 \papertitle{Your Paper Title}
